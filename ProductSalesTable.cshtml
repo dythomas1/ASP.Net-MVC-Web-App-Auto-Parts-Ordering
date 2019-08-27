@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Team11Project.Models.OrderStats>
+
+@{
+    ViewBag.Title = "Product Sales Statistics";
+}
+
+<h2>Product Sales Table</h2>
+
+<div>
+    <h4>Order Stats Model</h4>
+    <hr />
+
+    <table>
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Quantity
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.ProductName)
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Back to Sales Statistics Page", "Index")
+</p>
