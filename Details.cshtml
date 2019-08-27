@@ -1,29 +1,21 @@
-﻿@model Team11Project.Models.CustomerModel
+﻿@model Team11Project.Models.CampaignModel
 
 @{
-    ViewBag.Title = "Customer Details";
+    ViewBag.Title = "Campaign Details";
 }
 
-<h2>Customer Details</h2>
+<h2>Campaign Details</h2>
 
 <div>
-    <h4>Customer Model</h4>
+    <h4>Campaign Model</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CampaignModel.Name)
+            @Html.DisplayNameFor(model => model.CampaignGoal.GoalName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CampaignModel.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MarketSegmentModel.Manufacturer)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MarketSegmentModel.Manufacturer)
+            @Html.DisplayFor(model => model.CampaignGoal.GoalName)
         </dd>
 
         <dt>
@@ -35,64 +27,72 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.IsActive)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(model => model.IsActive)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastLogin)
+            @Html.DisplayNameFor(model => model.EndCampaign)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastLogin)
+            @Html.DisplayFor(model => model.EndCampaign)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SignupDate)
+            @Html.DisplayNameFor(model => model.Budget)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SignupDate)
+            @Html.DisplayFor(model => model.Budget)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MailingAddress)
+            @Html.DisplayNameFor(model => model.FundingExpenditures)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MailingAddress)
+            @Html.DisplayFor(model => model.FundingExpenditures)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.City)
+            @Html.DisplayNameFor(model => model.IsSubscriber)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.City)
+            @Html.DisplayFor(model => model.IsSubscriber)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.State)
+            @Html.DisplayNameFor(model => model.CPC)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.State)
+            @Html.DisplayFor(model => model.CPC)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
+            @Html.DisplayNameFor(model => model.CTR)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ZipCode)
+            @Html.DisplayFor(model => model.CTR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CVR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CVR)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CampaignModelID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

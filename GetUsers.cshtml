@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "GetUsers";
+}
+
+<h2>Users</h2>
+
+Inherits="System.Web.Mvc.ViewPage<MembershipUserCollection>
+    "
+
+    <ul>
+        <%foreach (MembershipUser user in Model){ %>
+
+        <li><%=user.UserName %></li>
+
+        <% }%>
+    </ul>

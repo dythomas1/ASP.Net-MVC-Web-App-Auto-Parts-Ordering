@@ -1,103 +1,100 @@
-﻿@model IEnumerable<Team11Project.Models.CustomerModel>
-
+﻿@model IEnumerable<Team11Project.Models.CampaignModel>
 @{
-    ViewBag.Title = "Customer Index";
+    ViewBag.Title = "Campaign Index";
 }
 
-<h2>Customer Index</h2>
+<h2>Campaign Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-    @using (Html.BeginForm("Index", "Customer", FormMethod.Get))
-    {
-    <p>
-        Manufacturer: @Html.DropDownList("customerSegment", "All")
+<div>
+    @Html.ActionLink("Create New Campaign", "Create") <br /><br />
 
-        <input type="submit" value="Filter" />
-    </p>
-    }
+    <div>
+        <p>
+            Click the link in the campaign goal name column to navigate to a graphical representation of the current campaign status. 
+            The link in the campaign name column will bring you to the goal status table, which shows the current stastics and the
+            goal statistics we hope to acheive.
+        </p>
+    </div>
 
-    <table class="table">
-        <tr>
-            @*<th>Campaign ID</th>*@
-            @*<th>@Html.DisplayNameFor(model => model.CampaignModelID)</th>*@
-            <th>
+    <p><a href="~/Campaign/CreateCampaignStatusTable">Create Table of Campaign Status</a></p>
+    <p><a href="~/Campaign/SendEmail">Send Email to segment</a></p>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CampaignGoal.GoalName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CampaignModel.Name)
-            </th>
-            <th>
-                Market Segment
-            </th>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndCampaign)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Budget)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FundingExpenditures)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSubscriber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CTR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CVR)
+        </th>
+        <th></th>
+    </tr>
 
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastLogin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SignupDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MailingAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ZipCode)
-            </th>
-            <th></th>
-        </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="/CampaignGoal/GoalStatsChart/@item.CampaignModelID">@Html.DisplayFor(modelItem => item.CampaignGoal.GoalName)</a>
+        </td>
+        <td>
+            <a href="/CampaignGoal/GoalStatsTable/@item.CampaignModelID">@Html.DisplayFor(modelItem => item.Name)</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndCampaign)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Budget)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FundingExpenditures)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSubscriber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CTR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CVR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CampaignModelID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CampaignModelID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CampaignModelID }) |
+            @Html.ActionLink("Add Customer", "EditCustomerCampaign", new {id=item.CampaignModelID})
+        </td>
+        
+    </tr>
+}
 
-        @foreach (var item in Model)
-            {
-            <tr>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.CampaignModelID)
-                </td>*@
-                <td>
-                @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CampaignModel.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MarketSegmentModel.Manufacturer)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastLogin)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SignupDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MailingAddress)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ZipCode)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
-                </td>
-            </tr>
-        }
-
-    </table>
+</table>

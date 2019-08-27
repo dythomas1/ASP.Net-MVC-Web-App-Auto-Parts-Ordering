@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Send Email";
+}
+
+<h2>Send Email to desired customer segment</h2>
+<body>
+    <div>
+        <form method="post" action="/Campaign/SendEmailSubmit">
+            <p>Please enter the campaign ID you wish to email:<input type="text" name="segment" /></p>
+            <p>Please enter the email subject:<input type="text" name="subject" /></p>
+            <p>Please enter the content you wish to email:</p>
+            <textarea name="content" rows="10" cols="40"></textarea>
+            <input type="submit" />
+        </form>
+    </div>
+</body>
+

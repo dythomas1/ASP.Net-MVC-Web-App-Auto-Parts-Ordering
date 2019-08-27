@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Team11Project.ViewModels.CampaignGoalStatusModel>
+
+
+@{
+    ViewBag.Title = "Goal Stats Table";
+}
+
+<h2>Goal Status Table</h2>
+
+<div>
+    <table>
+        <tr>
+            <th>
+                Campaign Name &nbsp &nbsp
+            </th>
+            <th>
+                Goal Name &nbsp &nbsp
+            </th>
+            <th>
+                CPC &nbsp &nbsp
+            </th>
+            <th>
+                CTR &nbsp &nbsp
+            </th>
+            <th>
+                CVR &nbsp &nbsp
+            </th>
+            <th>
+                Target CPC &nbsp &nbsp
+            </th>
+            <th>
+                Target CTR &nbsp &nbsp
+            </th>
+            <th>
+                Target CVR &nbsp &nbsp
+            </th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/CampaignGoal/GoalStatsChart/@item.CampaignModelID ">@Html.DisplayFor(model => item.Name) </a>&nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.GoalName) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CPC) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CTR) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CVR) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.TargetCPC) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.TargetCTR) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.TargetCVR) &nbsp &nbsp
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    <br /><br /><br />
+    @Html.ActionLink("Back to Campaign Statistics Page", "Index")
+</p>

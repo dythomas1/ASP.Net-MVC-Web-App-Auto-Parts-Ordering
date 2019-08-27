@@ -1,0 +1,30 @@
+﻿@model  IList<Team11Project.Models.CampaignCustomerModel>
+@{
+    ViewBag.Title = "Edit Customer's Campaign";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Edit Campaign</h2>
+
+@using (Html.BeginForm())
+{
+
+    for (var i=0; i< Model.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.HiddenFor(x => x[i].CustomerID)
+                @Html.HiddenFor(x => x[i].CampaignID)
+                @Html.CheckBoxFor(x => x[i].Check)
+            </td>
+            <td>
+                @Html.DisplayFor(x => x[i].CustomerName)
+            </td>
+        </tr>
+        <br />
+    }
+    <div>
+        <input type="submit" value="Submit Changes" />
+    </div>
+}

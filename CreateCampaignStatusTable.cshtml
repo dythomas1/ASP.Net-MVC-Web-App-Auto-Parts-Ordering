@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Team11Project.ViewModels.CampaignStatusModel>
+
+@{
+    ViewBag.Title = "Create Campaign Status Table";
+}
+
+<div>
+    <h4>Campaign Status Table</h4>
+    <hr />
+    <table>
+        <tr>
+            <th>
+                Campaign Name &nbsp &nbsp
+            </th>
+            <th>
+                Activity Status &nbsp &nbsp
+            </th>
+            <th>
+                End of Campaign &nbsp &nbsp
+            </th>
+            <th>
+                Budget &nbsp &nbsp
+            </th>
+            <th>
+                Incurred Expenses &nbsp &nbsp
+            </th>
+        </tr>
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => i.Name) &nbsp &nbsp
+                </td>
+                <td> 
+                    @Html.DisplayFor(model => i.IsActive) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => i.EndCampaign) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => i.Budget) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => i.FundingExpenditures) &nbsp &nbsp
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Team11Project.ViewModels.CampaignStatsModel>
+
+
+@{
+    ViewBag.Title = "Campaign Statistics Table";
+}
+
+<h2>Campaign Statistics Table</h2>
+
+<div>
+    <table>
+        <tr>
+            <th>
+                Campaign Name &nbsp &nbsp
+            </th>
+            <th>
+                CPC &nbsp &nbsp
+            </th>
+            <th>
+                CTR &nbsp &nbsp
+            </th>
+            <th>
+                CVR &nbsp &nbsp
+            </th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/Campaign/Edit/@item.CampaignModelID">@Html.DisplayFor(model => item.Name) &nbsp</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CPC) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CTR) &nbsp &nbsp
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CVR) &nbsp &nbsp
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    <br /><br /><br />
+    @Html.ActionLink("Back to Campaign Statistics Page", "Index")
+</p>
